@@ -3,7 +3,7 @@ import React from 'react';
 const User = (props) => {
     const {id, name,email,username,street,suite,city,zipcode,lat,lng,phone,website,names,catchPhrase,bs}= props;
     return (
-        <div>
+        <div className={'users'}>
             {/*{id}--{name}--{surname}--{email}*/}
             <div>id: {id}</div>
             <div>name: {name}</div>
