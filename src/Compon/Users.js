@@ -3,11 +3,15 @@ import React, {useEffect, useState} from 'react';
 
 import User from "./User";
 import {userServ} from "../Services/userServ";
+import Post from "./Post";
 
 const Users = () => {
 
     const [users, setUsers] = useState([])
     const [usersin, setUsersin] = useState(null)
+
+
+
 
     useEffect(() =>{
         userServ.getAll()
@@ -19,12 +23,18 @@ const Users = () => {
             .then(value => setUsersin(value))
     }
 
+
     return (
         <div>
             <div className={'forDetails'}>
                 <div>{users.map(value => <User key ={value.id} user ={value} getUseDet={getUseDet}/>)}</div>
-                { usersin && <div className={'details'}>{usersin?.value}-{usersin?.name}-{usersin?.email}-{usersin?.username}</div>}
+                { usersin && <div className={'details'}>{usersin?.value}-{usersin?.name}-{usersin?.email}-{usersin?.username}  </div>}
             </div>
+            {/*<div>*/}
+
+            {/*    {posts.map(valuet => <User key={valuet.id} post ={valuet} getPostsDet={getPostsDet} />)}*/}
+            {/*    { postDet && <div>{postDet?.value}-{postDet?.name}-{postDet?.email}-{postDet?.username}  </div>}*/}
+            {/*</div>*/}
         </div>
     );
 };
