@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 
 import Post from "./Post";
+
 const Posts = () => {
 
     const [posts, setPosts] = useState([])
@@ -9,20 +10,21 @@ const Posts = () => {
 
     useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(value => value.json())
-            .then(value => setPosts(value))
+            .then(valuet => valuet.json())
+            .then(valuet => setPosts(valuet))
     },[])
 
 
     const getPostsDet = (userId) =>{
         fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(value => value.json())
-            .then(value => setPostDet(value))
+            .then(valuet => valuet.json())
+            .then(valuet => setPostDet(valuet))
     }
 
     return (
         <div>
-            {posts.map(value => <Post key={value.id} post ={value} />)}
+            {posts.map(valuet => <Post key={valuet.id} post ={valuet} getPostsDet={getPostsDet} />)}
+
         </div>
     );
 };

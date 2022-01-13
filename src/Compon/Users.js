@@ -24,17 +24,36 @@ const Users = () => {
     }
 
 
+
+    const [posts, setPosts] = useState([])
+    const [postDet, setPostDet] = useState(null)
+
+    useEffect(()=>{
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(valuet => valuet.json())
+            .then(valuet => setPosts(valuet))
+    },[])
+
+
+    const getPostsDet = (userId) =>{
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(valuet => valuet.json())
+            .then(valuet => setPostDet(valuet))
+    }
+
+
+
+
     return (
         <div>
             <div className={'forDetails'}>
                 <div>{users.map(value => <User key ={value.id} user ={value} getUseDet={getUseDet}/>)}</div>
-                { usersin && <div className={'details'}>{usersin?.value}-{usersin?.name}-{usersin?.email}-{usersin?.username}  </div>}
+                { usersin && <div className={'details'}>{usersin?.value}-{usersin?.name}-{usersin?.email}-{usersin?.username} </div>}
             </div>
-            {/*<div>*/}
+            <div>
 
-            {/*    {posts.map(valuet => <User key={valuet.id} post ={valuet} getPostsDet={getPostsDet} />)}*/}
-            {/*    { postDet && <div>{postDet?.value}-{postDet?.name}-{postDet?.email}-{postDet?.username}  </div>}*/}
-            {/*</div>*/}
+
+            </div>
         </div>
     );
 };

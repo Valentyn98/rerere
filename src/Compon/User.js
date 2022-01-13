@@ -8,7 +8,7 @@ const User = (props) => {
     return (
         <div>
             {id}-{name}
-            <button onClick={()=>{getUseDet(id)}}>getUsePost</button>
+            <button onClick={()=>{getUseDet(id)}}>getUseDet</button>
 
         </div>
     );
