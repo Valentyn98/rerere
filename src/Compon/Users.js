@@ -12,7 +12,6 @@ const Users = () => {
 
 
 
-
     useEffect(() =>{
         userServ.getAll()
             .then(value => setUsers(value))
@@ -22,27 +21,6 @@ const Users = () => {
         userServ.getById(id)
             .then(value => setUsersin(value))
     }
-
-
-
-    const [posts, setPosts] = useState([])
-    const [postDet, setPostDet] = useState(null)
-
-    useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(valuet => valuet.json())
-            .then(valuet => setPosts(valuet))
-    },[])
-
-
-    const getPostsDet = (userId) =>{
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(valuet => valuet.json())
-            .then(valuet => setPostDet(valuet))
-    }
-
-
-
 
     return (
         <div>
