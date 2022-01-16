@@ -1,23 +1,29 @@
+import React, {useState} from 'react';
+import Users from "./Components/Users/Users";
+import UsersDetails from "./Components/UsersDetails/UsersDetails";
+import Posts from "./Components/Posts/Posts";
+import css from './App.module.css'
 
-import './App.css';
-import Users from "./Compon/Users";
-import Posts from "./Compon/Posts";
+const App = () => {
+     const [user, setUser] = useState(null)
+    const [userId, setUserid] = useState(null)
 
-function App() {
-const drop = () =>{
+    useState(null)
+    const getUser = (user)=>{
+        setUser(user)
+    }
+    const getUserId = (id) => {
 
-}
-
-
-  return (
-    <div className="App">
-
-        <Users/>
+    }
+    return (
+        <div>
+            <div className={css.wrap}>
+                <Users getUser={getUser}/>
+                {user && <UsersDetails user={user} getUserId={getUserId}/>}
+            </div>
             <Posts/>
-
-
-    </div>
-  );
-}
+        </div>
+    );
+};
 
 export default App;
